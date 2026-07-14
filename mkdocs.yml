@@ -1,0 +1,9 @@
+site_name: FCS Developer Portal
+site_description: Catálogo e runbook da plataforma Conexão Solidária.
+nav:
+  - Início: index.md
+  - Decisões:
+      - Plataforma: adr/0001-backstage-portal.md
+      - Persistência e TechDocs: adr/0002-poc-persistence-and-techdocs.md
+plugins:
+  - techdocs-core

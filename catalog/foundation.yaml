@@ -1,0 +1,109 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: fcs-team
+  title: FCS Team
+spec:
+  type: team
+  profile:
+    displayName: FCS Team
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: conexao-solidaria
+  title: Conexão Solidária
+  description: Plataforma de doações para conectar doadores, campanhas e ONGs.
+spec:
+  owner: group:default/fcs-team
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: fcs-vps-k3s
+  title: Cluster K3s da VPS FCS
+spec:
+  type: kubernetes-cluster
+  owner: group:default/fcs-team
+  system: conexao-solidaria
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: sqlserver
+  title: SQL Server
+spec:
+  type: database
+  owner: group:default/fcs-team
+  system: conexao-solidaria
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kafka
+  title: Kafka
+spec:
+  type: message-broker
+  owner: group:default/fcs-team
+  system: conexao-solidaria
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: mongodb
+  title: MongoDB
+spec:
+  type: database
+  owner: group:default/fcs-team
+  system: conexao-solidaria
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: keycloak
+  title: Keycloak
+spec:
+  type: identity-provider
+  owner: group:default/fcs-team
+  system: conexao-solidaria
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: traefik
+  title: Traefik
+spec:
+  type: ingress-controller
+  owner: group:default/fcs-team
+  system: conexao-solidaria
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: infisical
+  title: Infisical Cloud
+spec:
+  type: secrets-manager
+  owner: group:default/fcs-team
+  system: conexao-solidaria
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: datadog
+  title: Datadog
+spec:
+  type: observability
+  owner: group:default/fcs-team
+  system: conexao-solidaria
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: techdocs-minio
+  title: MinIO TechDocs
+spec:
+  type: object-storage
+  owner: group:default/fcs-team
+  system: conexao-solidaria

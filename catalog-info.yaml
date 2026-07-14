@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: fcs-developer-portal
+  title: FCS Developer Portal
+  description: Catálogo, documentação técnica e visão operacional da plataforma FCS.
+  annotations:
+    github.com/project-slug: group10-tc-01/fcs-developer-portal
+    backstage.io/techdocs-ref: dir:.
+    backstage.io/kubernetes-id: fcs-developer-portal
+    backstage.io/kubernetes-namespace: fcs-developer-portal
+  links:
+    - title: Repositório
+      url: https://github.com/group10-tc-01/fcs-developer-portal
+    - title: GitHub Actions
+      url: https://github.com/group10-tc-01/fcs-developer-portal/actions
+    - title: Datadog
+      url: https://us5.datadoghq.com/metric/explorer?query=service%3Afcs-developer-portal
+spec:
+  type: website
+  lifecycle: experimental
+  owner: group:default/fcs-team
+  system: conexao-solidaria
+  dependsOn:
+    - resource:default/fcs-vps-k3s
+    - resource:default/techdocs-minio
+    - resource:default/infisical
+    - resource:default/traefik
+    - resource:default/datadog

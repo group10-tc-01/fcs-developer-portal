@@ -1,0 +1,11 @@
+app:
+  baseUrl: https://fcs-devportal.flaviojcf.com.br
+
+backend:
+  baseUrl: https://fcs-devportal.flaviojcf.com.br
+  listen: ':7007'
+  cors:
+    origin: https://fcs-devportal.flaviojcf.com.br
+  database:
+    client: better-sqlite3
+    connection: /app/data/backstage.sqlite

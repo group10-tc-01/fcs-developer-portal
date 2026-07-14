@@ -1,0 +1,109 @@
+app:
+  title: FCS Developer Portal
+  baseUrl: http://localhost:3000
+  packages: all
+  extensions:
+    - page:catalog:
+        config:
+          path: /
+
+organization:
+  name: FCS Team
+
+backend:
+  baseUrl: http://localhost:7007
+  listen:
+    port: 7007
+  auth:
+    keys:
+      - secret: ${BACKSTAGE_BACKEND_SECRET}
+  csp:
+    connect-src: ["'self'", 'http:', 'https:']
+  cors:
+    origin: http://localhost:3000
+    methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
+    credentials: true
+  database:
+    client: better-sqlite3
+    connection: ':memory:'
+
+integrations:
+  github:
+    - host: github.com
+      apps:
+        - appId: ${GITHUB_APP_ID}
+          clientId: ${GITHUB_APP_CLIENT_ID}
+          clientSecret: ${GITHUB_APP_CLIENT_SECRET}
+          privateKey: ${GITHUB_APP_PRIVATE_KEY}
+          allowedInstallationOwners: [group10-tc-01]
+  awsS3:
+    - endpoint: http://developer-portal-minio:9000
+      region: us-east-1
+      accessKeyId: ${MINIO_TECHDOCS_ACCESS_KEY}
+      secretAccessKey: ${MINIO_TECHDOCS_SECRET_KEY}
+      s3ForcePathStyle: true
+
+techdocs:
+  builder: local
+  generator:
+    runIn: local
+  publisher:
+    type: awsS3
+    awsS3:
+      bucketName: techdocs
+      region: us-east-1
+      s3ForcePathStyle: true
+
+auth:
+  providers:
+    guest: {}
+
+catalog:
+  import:
+    entityFilename: catalog-info.yaml
+    pullRequestBranchName: backstage-integration
+  rules:
+    - allow: [Component, System, API, Resource, Location, Group]
+  locations:
+    - type: file
+      target: ./catalog/foundation.yaml
+    - type: url
+      target: https://github.com/group10-tc-01/fcs-identity/blob/main/catalog-info.yaml
+    - type: url
+      target: https://github.com/group10-tc-01/fcs-campaign/blob/main/catalog-info.yaml
+    - type: url
+      target: https://github.com/group10-tc-01/fcs-donations/blob/main/catalog-info.yaml
+    - type: url
+      target: https://github.com/group10-tc-01/fcs-donation-worker/blob/main/catalog-info.yaml
+    - type: url
+      target: https://github.com/group10-tc-01/fcs-audit-logs/blob/main/catalog-info.yaml
+    - type: url
+      target: https://github.com/group10-tc-01/fcs-bff/blob/main/catalog-info.yaml
+    - type: url
+      target: https://github.com/group10-tc-01/fcs-web/blob/main/catalog-info.yaml
+    - type: url
+      target: https://github.com/group10-tc-01/fcs-infra/blob/main/catalog-info.yaml
+    - type: url
+      target: https://github.com/group10-tc-01/fcs-pipelines/blob/main/catalog-info.yaml
+    - type: url
+      target: https://github.com/group10-tc-01/fcs-fase05-docs/blob/main/catalog-info.yaml
+    - type: url
+      target: https://github.com/group10-tc-01/fcs-vps-infra-guide/blob/main/catalog-info.yaml
+
+kubernetes:
+  frontend:
+    podDelete:
+      enabled: false
+  serviceLocatorMethod:
+    type: multiTenant
+  clusterLocatorMethods:
+    - type: config
+      clusters:
+        - name: fcs-vps-k3s
+          title: FCS VPS K3s
+          authProvider: serviceAccount
+          skipTLSVerify: false
+          skipMetricsLookup: true
+
+permission:
+  enabled: true

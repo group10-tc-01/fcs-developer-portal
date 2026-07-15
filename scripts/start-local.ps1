@@ -7,7 +7,7 @@ Get-Content "$PSScriptRoot\..\.env" | ForEach-Object {
 }
 
 if (Get-Command yarn -ErrorAction SilentlyContinue) {
-  yarn start --config app-config.yaml --config app-config.local.yaml
+  yarn start --config ../../app-config.yaml --config ../../app-config.local.yaml
 } else {
-  node .yarn/releases/yarn-4.13.0.cjs start --config app-config.yaml --config app-config.local.yaml
+  node .yarn/releases/yarn-4.13.0.cjs start --config ../../app-config.yaml --config ../../app-config.local.yaml
 }

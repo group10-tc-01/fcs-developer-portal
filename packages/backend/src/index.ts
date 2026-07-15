@@ -14,6 +14,5 @@ backend.add(
   import('@backstage/plugin-permission-backend-module-allow-all-policy'),
 );
 backend.add(import('@backstage/plugin-kubernetes-backend'));
-backend.add(import('@backstage/plugin-user-settings-backend'));
 
 backend.start();

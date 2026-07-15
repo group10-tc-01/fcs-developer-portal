@@ -9,7 +9,6 @@ import {
 import { NavContentBlueprint } from '@backstage/plugin-app-react';
 import { SidebarLogo } from './SidebarLogo';
 import MenuIcon from '@material-ui/icons/Menu';
-import { UserSettingsSignInAvatar } from '@backstage/plugin-user-settings';
 
 export const SidebarContent = NavContentBlueprint.make({
   params: {
@@ -29,15 +28,6 @@ export const SidebarContent = NavContentBlueprint.make({
             </SidebarScrollWrapper>
           </SidebarGroup>
           <SidebarSpace />
-          <SidebarDivider />
-          <SidebarGroup
-            label="Settings"
-            icon={<UserSettingsSignInAvatar />}
-            to="/settings"
-          >
-            {nav.take('page:app-visualizer')}
-            {nav.take('page:user-settings')}
-          </SidebarGroup>
         </Sidebar>
       );
     },

@@ -12,12 +12,11 @@ PoC Backstage para a equipe da Conexão Solidária. Centraliza catálogo, TechDo
 ## Desenvolvimento local
 
 ```powershell
-corepack enable
 yarn install --immutable
-yarn start
+.\scripts\start-local.ps1
 ```
 
-Para executar localmente, defina valores de desenvolvimento para `BACKSTAGE_BACKEND_SECRET`, credenciais da GitHub App e credenciais S3 compatíveis com MinIO. Não use as credenciais de produção.
+O arquivo `.env` e `app-config.local.yaml` já usam valores locais descartáveis, SQLite em memória, TechDocs local e Kubernetes desabilitado. Eles são ignorados pelo Git. Não use credenciais de produção nesse teste.
 
 ## Entrega
 

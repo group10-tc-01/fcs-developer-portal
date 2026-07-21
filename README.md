@@ -26,18 +26,18 @@ O manifesto em `k8s/` cria o portal no namespace `fcs-developer-portal`. A infra
 
 No projeto `fcs-platform-dd-uk`, ambiente `prod`, path `/developer-portal`, cadastre:
 
-| Chave | Uso |
-| --- | --- |
-| `backstage-backend-secret` | Chave interna de autenticação entre plugins. |
-| `github-app-id` | Identificador da GitHub App somente leitura. |
-| `github-app-client-id` | Client ID da GitHub App. |
-| `github-app-client-secret` | Client secret da GitHub App. |
-| `github-app-private-key` | Chave privada PEM da GitHub App. |
-| `minio-root-user` | Usuário administrador do MinIO. |
-| `minio-root-password` | Senha administrativa do MinIO. |
-| `minio-techdocs-access-key` | Chave S3 limitada ao bucket `techdocs`. |
-| `minio-techdocs-secret-key` | Segredo S3 limitado ao bucket `techdocs`. |
-| `traefik-basic-auth-users` | Conteúdo `users` gerado por `htpasswd` para o Middleware Traefik. |
+| Chave                       | Uso                                                               |
+| --------------------------- | ----------------------------------------------------------------- |
+| `backstage-backend-secret`  | Chave interna de autenticação entre plugins.                      |
+| `github-app-id`             | Identificador da GitHub App somente leitura.                      |
+| `github-app-client-id`      | Client ID da GitHub App.                                          |
+| `github-app-client-secret`  | Client secret da GitHub App.                                      |
+| `github-app-private-key`    | Chave privada PEM da GitHub App.                                  |
+| `minio-root-user`           | Usuário administrador do MinIO.                                   |
+| `minio-root-password`       | Senha administrativa do MinIO.                                    |
+| `minio-techdocs-access-key` | Chave S3 limitada ao bucket `techdocs`.                           |
+| `minio-techdocs-secret-key` | Segredo S3 limitado ao bucket `techdocs`.                         |
+| `traefik-basic-auth-users`  | Conteúdo `users` gerado por `htpasswd` para o Middleware Traefik. |
 
 O valor de `traefik-basic-auth-users` deve conter o hash htpasswd completo, não senha em texto puro. Exemplo de geração local:
 

@@ -36,13 +36,6 @@ integrations:
           clientSecret: ${GITHUB_APP_CLIENT_SECRET}
           privateKey: ${GITHUB_APP_PRIVATE_KEY}
           allowedInstallationOwners: [group10-tc-01]
-  awsS3:
-    - endpoint: http://developer-portal-minio:9000
-      region: us-east-1
-      accessKeyId: ${MINIO_TECHDOCS_ACCESS_KEY}
-      secretAccessKey: ${MINIO_TECHDOCS_SECRET_KEY}
-      s3ForcePathStyle: true
-
 techdocs:
   builder: local
   generator:
@@ -52,6 +45,10 @@ techdocs:
     awsS3:
       bucketName: techdocs
       region: us-east-1
+      endpoint: http://developer-portal-minio:9000
+      credentials:
+        accessKeyId: ${MINIO_TECHDOCS_ACCESS_KEY}
+        secretAccessKey: ${MINIO_TECHDOCS_SECRET_KEY}
       s3ForcePathStyle: true
 
 auth:
@@ -101,6 +98,7 @@ kubernetes:
       clusters:
         - name: fcs-vps-k3s
           title: FCS VPS K3s
+          url: https://kubernetes.default.svc
           authProvider: serviceAccount
           skipTLSVerify: false
           skipMetricsLookup: true

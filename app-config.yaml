@@ -6,6 +6,9 @@ app:
     - page:catalog:
         config:
           path: /
+    - page:techdocs/reader:
+        config:
+          withoutSearch: true
 
 organization:
   name: FCS Team
@@ -86,6 +89,10 @@ catalog:
       target: https://github.com/group10-tc-01/fcs-fase05-docs/blob/main/catalog-info.yaml
     - type: url
       target: https://github.com/group10-tc-01/fcs-vps-infra-guide/blob/main/catalog-info.yaml
+    - type: url
+      target: https://github.com/group10-tc-01/fcs-notifications/blob/main/catalog-info.yaml
+    - type: url
+      target: https://github.com/group10-tc-01/fcs-developer-portal/blob/main/catalog-info.yaml
 
 kubernetes:
   frontend:

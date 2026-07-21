@@ -30,7 +30,6 @@
     "@backstage/plugin-catalog-import": "^0.13.15",
     "@backstage/plugin-kubernetes": "^0.12.21",
     "@backstage/plugin-org": "^0.7.6",
-    "@backstage/plugin-signals": "^0.0.33",
     "@backstage/plugin-techdocs": "^1.17.8",
     "@backstage/plugin-techdocs-module-addons-contrib": "^1.1.38",
     "@backstage/ui": "^0.17.0",

@@ -25,6 +25,6 @@ jobs:
       k8s_apply_mode: kustomize
       vps_host: ${{ vars.VPS_HOST }}
       vps_deploy_user: ${{ vars.VPS_DEPLOY_USER }}
-      healthcheck_url: https://fcs-devportal.flaviojcf.com.br/healthcheck
+      healthcheck_url: https://fcs-devportal.flaviojcf.com.br/.backstage/health/v1/readiness
       environment: production
     secrets: inherit

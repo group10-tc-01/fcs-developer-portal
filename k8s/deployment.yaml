@@ -50,12 +50,16 @@ spec:
               memory: 1Gi
           readinessProbe:
             httpGet:
-              path: /healthcheck
+              path: /.backstage/health/v1/readiness
               port: http
+            initialDelaySeconds: 10
+            timeoutSeconds: 3
           livenessProbe:
             httpGet:
-              path: /healthcheck
+              path: /.backstage/health/v1/liveness
               port: http
+            initialDelaySeconds: 20
+            timeoutSeconds: 3
           volumeMounts:
             - name: data
               mountPath: /app/data

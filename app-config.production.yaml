@@ -10,3 +10,8 @@ backend:
     client: better-sqlite3
     connection:
       directory: /app/data
+
+auth:
+  providers:
+    guest:
+      dangerouslyAllowOutsideDevelopment: true

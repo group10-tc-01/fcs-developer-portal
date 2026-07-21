@@ -1,12 +1,3 @@
-apiVersion: traefik.io/v1alpha1
-kind: Middleware
-metadata:
-  name: developer-portal-auth
-  namespace: fcs-developer-portal
-spec:
-  basicAuth:
-    secret: developer-portal-basic-auth
----
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
@@ -27,7 +18,6 @@ metadata:
   namespace: fcs-developer-portal
   annotations:
     kubernetes.io/ingress.class: fcs-traefik
-    traefik.ingress.kubernetes.io/router.middlewares: fcs-developer-portal-developer-portal-auth@kubernetescrd
 spec:
   ingressClassName: fcs-traefik
   tls:

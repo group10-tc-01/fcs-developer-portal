@@ -13,6 +13,3 @@ backend:
 
 auth:
   environment: production
-  providers:
-    guest:
-      dangerouslyAllowOutsideDevelopment: true

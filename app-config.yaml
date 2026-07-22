@@ -65,13 +65,25 @@ auth:
       production:
         clientId: ${GITHUB_APP_CLIENT_ID}
         clientSecret: ${GITHUB_APP_CLIENT_SECRET}
+        signIn:
+          resolvers:
+            - resolver: usernameMatchingUserEntityName
 
 catalog:
   import:
     entityFilename: catalog-info.yaml
     pullRequestBranchName: backstage-integration
   rules:
-    - allow: [Component, System, API, Resource, Location, Group]
+    - allow: [Component, System, API, Resource, Location, Group, User]
+  providers:
+    githubOrg:
+      - id: fcs-team
+        githubUrl: https://github.com
+        orgs: [group10-tc-01]
+        schedule:
+          initialDelay: { seconds: 15 }
+          frequency: { minutes: 5 }
+          timeout: { minutes: 1 }
   locations:
     - type: file
       target: ./catalog/foundation.yaml

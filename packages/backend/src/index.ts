@@ -7,6 +7,7 @@ backend.add(import('@backstage/plugin-proxy-backend'));
 backend.add(import('@backstage/plugin-techdocs-backend'));
 backend.add(import('@backstage/plugin-auth-backend'));
 backend.add(import('@backstage/plugin-auth-backend-module-guest-provider'));
+backend.add(import('@backstage/plugin-auth-backend-module-github-provider'));
 backend.add(import('@backstage/plugin-catalog-backend'));
 backend.add(import('@backstage/plugin-catalog-backend-module-logs'));
 backend.add(import('@backstage/plugin-search-backend'));

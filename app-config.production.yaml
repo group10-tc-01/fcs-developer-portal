@@ -12,6 +12,7 @@ backend:
       directory: /app/data
 
 auth:
+  environment: production
   providers:
     guest:
       dangerouslyAllowOutsideDevelopment: true

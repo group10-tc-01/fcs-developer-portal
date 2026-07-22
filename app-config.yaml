@@ -9,6 +9,10 @@ app:
     - page:techdocs/reader:
         config:
           withoutSearch: true
+    - entity-content:github-actions:
+        config:
+          filter:
+            metadata.name: fcs-bff
 
 organization:
   name: FCS Team
@@ -57,6 +61,10 @@ techdocs:
 auth:
   providers:
     guest: {}
+    github:
+      production:
+        clientId: ${GITHUB_APP_CLIENT_ID}
+        clientSecret: ${GITHUB_APP_CLIENT_SECRET}
 
 catalog:
   import:
